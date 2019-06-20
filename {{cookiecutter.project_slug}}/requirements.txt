@@ -1,3 +1,59 @@
-# This file is expected by Heroku.
-
--r requirements/production.txt
+Pillow==6.0.0  # https://github.com/python-pillow/Pillow
+Sphinx==2.1.1  # https://github.com/sphinx-doc/sphinx
+Werkzeug==0.14.1  # pyup: < 0.15 # https://github.com/pallets/werkzeug
+argon2-cffi==19.1.0  # https://github.com/hynek/argon2_cffi
+black==19.3b0  # https://github.com/ambv/black
+celery==4.3.0  # pyup: < 5.0  # https://github.com/celery/celery
+coreapi==2.3.3  # https://github.com/core-api/python-client
+coverage==4.5.3  # https://github.com/nedbat/coveragepy
+django-allauth==0.39.1  # https://github.com/pennersr/django-allauth
+django-anymail[mailgun]==6.0.1  # https://github.com/anymail/django-anymail
+django-celery-beat==1.5.0  # https://github.com/celery/django-celery-beat
+django-coverage-plugin==1.6.0  # https://github.com/nedbat/django_coverage_plugin
+django-crispy-forms==1.7.2  # https://github.com/django-crispy-forms/django-crispy-forms
+django-debug-toolbar==1.11  # https://github.com/jazzband/django-debug-toolbar
+django-environ==0.4.5  # https://github.com/joke2k/django-environ
+django-extensions==2.1.9  # https://github.com/django-extensions/django-extensions
+django-health-check==3.9.0  # https://github.com/KristianOellegaard/django-health-check
+django-meta==1.5.1
+django-model-utils==3.1.2  # https://github.com/jazzband/django-model-utils
+django-redis==4.10.0  # https://github.com/niwinz/django-redis
+django-stubs==1.3.0 # https://github.com/mkurnikov/django-stubs
+django==2.2.2  # pyup: < 3.0  # https://www.djangoproject.com/
+djangorestframework-stubs==0.4.2 # https://github.com/mkurnikov/djangorestframework-stubs
+djangorestframework==3.9.4  # https://github.com/encode/django-rest-framework
+factory-boy==2.12.0  # https://github.com/FactoryBoy/factory_boy
+flake8==3.7.7  # https://github.com/PyCQA/flake8
+gunicorn==19.9.0  # https://github.com/benoitc/gunicorn
+isort==4.3.18
+mypy==0.750  # https://github.com/python/mypy
+psycopg2==2.8.2 --no-binary psycopg2  # https://github.com/psycopg/psycopg2
+ptipython==1.0.1
+ptpython==2.0.4
+pudb==2019.1
+pylint-celery==0.3  # https://github.com/PyCQA/pylint-celery
+pylint-django==2.0.9  # https://github.com/PyCQA/pylint-django
+pytest-django==3.5.0  # https://github.com/pytest-dev/pytest-django
+pytest-sugar==0.9.2  # https://github.com/Frozenball/pytest-sugar
+pytest-cov==2.7.1
+pytest==4.6.3  # https://github.com/pytest-dev/pytest
+python-slugify==3.0.2  # https://github.com/un33k/python-slugify
+pytz==2019.1  # https://github.com/stub42/pytz
+redis==3.2.1  # https://github.com/antirez/redis
+# {%- if cookiecutter.cloud_provider == 'AWS' %}
+django-storages[boto3]==1.7.1  # https://github.com/jschneier/django-storages
+awscli==1.16.181
+# {%- elif cookiecutter.cloud_provider == 'GCP' %}
+django-storages[google]==1.7.1  # https://github.com/jschneier/django-storages
+# {%- endif %}
+# {%- if cookiecutter.use_compressor == "y" %}
+django-compressor==2.3  # https://github.com/django-compressor/django-compressor
+# {%- endif %}
+# {%- if cookiecutter.use_compressor == "y" %}
+# {%- endif %}
+# {%- if cookiecutter.use_sentry == "y" %}
+sentry-sdk==0.9.0  # https://github.com/getsentry/sentry-python
+# {%- endif %}
+Collectfast==1.0.0
+django-analytical==2.5.0
+whitenoise==4.1.4

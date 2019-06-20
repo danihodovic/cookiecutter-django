@@ -1,11 +1,12 @@
 {
+  "python_version": "3.7",
   "project_name": "My Awesome Project",
   "project_slug": "{{ cookiecutter.project_name.lower()|replace(' ', '_')|replace('-', '_')|replace('.', '_')|trim() }}",
   "description": "Behold My Awesome Project!",
   "author_name": "Daniel Roy Greenfeld",
   "domain_name": "example.com",
   "email": "{{ cookiecutter.author_name.lower()|replace(' ', '-') }}@example.com",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "open_source_license": [
     "MIT",
     "BSD",
@@ -16,7 +17,10 @@
   "timezone": "UTC",
   "windows": "n",
   "use_pycharm": "n",
-  "use_docker": "n",
+  "use_docker": "y",
+  "docker_registry": "registry.gitlab.com",
+  "docker_image_name": "{{ cookiecutter.project_slug }}/{{ cookiecutter.project_slug }}",
+  "docker_image": "{{ cookiecutter.docker_registry }}/{{ cookiecutter.docker_image_name }}",
   "postgresql_version": [
     "11.3",
     "10.8",
@@ -25,8 +29,8 @@
     "9.4"
   ],
   "js_task_runner": [
-    "None",
-    "Gulp"
+    "npm",
+    "none"
   ],
   "cloud_provider": [
     "AWS",
@@ -34,18 +38,17 @@
     "None"
   ],
   "custom_bootstrap_compilation": "n",
+  "use_whitenoise": "y",
   "use_compressor": "n",
   "use_celery": "n",
-  "use_mailhog": "n",
+  "use_mailhog": "y",
   "use_sentry": "n",
-  "use_whitenoise": "n",
   "use_heroku": "n",
   "ci_tool": [
     "None",
     "Travis",
     "Gitlab"
   ],
-  "keep_local_envs_in_vcs": "y",
-
+  "keep_local_envs_in_vcs": "n",
   "debug": "n"
 }

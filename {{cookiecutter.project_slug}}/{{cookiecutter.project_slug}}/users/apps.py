@@ -8,6 +8,7 @@ class UsersConfig(AppConfig):
 
     def ready(self):
         try:
+            # pylint: disable=unused-import,import-outside-toplevel
             import {{ cookiecutter.project_slug }}.users.signals  # noqa F401
         except ImportError:
             pass

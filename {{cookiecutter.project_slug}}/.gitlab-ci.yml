@@ -1,33 +1,49 @@
+---
+# yamllint disable rule:line-length
+image: docker:stable
+
+services:
+  - docker:dind
+
 stages:
-  - lint
+  - build
   - test
+  - deploy
 
-variables:
-  POSTGRES_USER: '{{ cookiecutter.project_slug }}'
-  POSTGRES_PASSWORD: ''
-  POSTGRES_DB: 'test_{{ cookiecutter.project_slug }}'
-
-flake8:
-  stage: lint
-  image: python:3.7-alpine
-  before_script:
-    - pip install -q flake8
+build:
+  stage: build
+  image: danihodovic/gitlab-runner
   script:
-    - flake8
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+    - task build-images
+    - task push-images
 
-pytest:
+test:
   stage: test
-  image: python:3.7
-  tags:
-    - docker
-  services:
-    - postgres:11
-  variables:
-    DATABASE_URL: pgsql://$POSTGRES_USER:$POSTGRES_PASSWORD@postgres/$POSTGRES_DB
-
-  before_script:
-    - pip install -r requirements/local.txt
-
+  image: danihodovic/gitlab-runner
   script:
-    - pytest
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+    - docker-compose pull
+    - task lint-py
+    - task lint-js
+    - task test
 
+deploy: &deploy
+  stage: deploy
+  only:
+    refs:
+      - master
+  image: danihodovic/ansible
+  environment:
+    name: production
+    url: https://mysite.com
+  variables:
+    ANSIBLE_CONFIG: ./ansible.cfg  # https://github.com/ansible/ansible/issues/42388
+  script:
+    - echo Deploying
+
+deploy_manual:
+  <<: *deploy
+  only:
+  when: manual
+  stage: test
