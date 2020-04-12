@@ -3,7 +3,7 @@ Sphinx==2.1.1  # https://github.com/sphinx-doc/sphinx
 Werkzeug==0.14.1  # pyup: < 0.15 # https://github.com/pallets/werkzeug
 argon2-cffi==19.1.0  # https://github.com/hynek/argon2_cffi
 black==19.3b0  # https://github.com/ambv/black
-celery==4.3.0  # pyup: < 5.0  # https://github.com/celery/celery
+celery==4.4.2  # pyup: < 5.0  # https://github.com/celery/celery
 coreapi==2.3.3  # https://github.com/core-api/python-client
 coverage==4.5.3  # https://github.com/nedbat/coveragepy
 django-allauth==0.39.1  # https://github.com/pennersr/django-allauth
