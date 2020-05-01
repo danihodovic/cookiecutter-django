@@ -8,7 +8,7 @@ coreapi==2.3.3  # https://github.com/core-api/python-client
 coverage==4.5.3  # https://github.com/nedbat/coveragepy
 django-allauth==0.39.1  # https://github.com/pennersr/django-allauth
 django-anymail[mailgun]==6.0.1  # https://github.com/anymail/django-anymail
-django-celery-beat==1.5.0  # https://github.com/celery/django-celery-beat
+django-celery-beat==2.0.0  # https://github.com/celery/django-celery-beat
 django-coverage-plugin==1.6.0  # https://github.com/nedbat/django_coverage_plugin
 django-crispy-forms==1.7.2  # https://github.com/django-crispy-forms/django-crispy-forms
 django-debug-toolbar==1.11  # https://github.com/jazzband/django-debug-toolbar
